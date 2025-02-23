@@ -91,9 +91,9 @@ TEST_F(ClatUtils, SelectIpv4Address) {
     EXPECT_EQ(inet_addr("192.0.0.10"), selectIpv4Address(addr, 24, only10Free));
 
     // Now try using the real function which sees if IP addresses are free using bind().
-    // Assume that the machine running the test has the address 127.0.0.1, but not 8.8.8.8.
-    addr.s_addr = inet_addr("8.8.8.8");
-    EXPECT_EQ(inet_addr("8.8.8.8"), selectIpv4Address(addr, 29));
+    // Assume that the machine running the test has the address 127.0.0.1, but not 9.9.9.9.
+    addr.s_addr = inet_addr("9.9.9.9");
+    EXPECT_EQ(inet_addr("9.9.9.9"), selectIpv4Address(addr, 29));
 
     addr.s_addr = inet_addr("127.0.0.1");
     EXPECT_EQ(inet_addr("127.0.0.2"), selectIpv4Address(addr, 29));
